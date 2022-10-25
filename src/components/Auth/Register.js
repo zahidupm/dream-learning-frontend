@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/auth.context';
 
 const Register = () => {
-    const {createUser, updateUserProfile, signInWithGoogle} = useContext(AuthContext);
+    const {createUser, updateUserProfile, signInWithGoogle, signInWithGithub} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const [userInfo, setUserInfo]= useState({
@@ -71,6 +71,17 @@ const Register = () => {
         console.log(user);
         toast.info('Google Sign')
         // navigate('/');
+      })
+      .catch(error => console.error(error))
+    }
+
+    // handle github sing in
+    const handleGithubSignIn = () => {
+      signInWithGithub()
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        toast.info('Github Sign In')
       })
       .catch(error => console.error(error))
     }
@@ -176,7 +187,7 @@ const Register = () => {
 
         Google 
   </button> 
-  <button data-v-7db52544="" className="flex w-full justify-center items-center border border-gray-300 rounded px-4 py-2 mb-5">
+  <button onClick={handleGithubSignIn} data-v-7db52544="" className="flex w-full justify-center items-center border border-gray-300 rounded px-4 py-2 mb-5">
         <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'

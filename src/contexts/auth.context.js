@@ -27,6 +27,10 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, googleProvider);
     }
 
+    const signInWithGithub = () => {
+        return signInWithPopup(auth, githubProvider);
+    }
+
     const logOut = () => {
         return signOut(auth);
     }
@@ -40,7 +44,8 @@ const AuthProvider = ({children}) => {
         signIn,
         updateUserProfile,
         signInWithGoogle,
-        logOut
+        logOut,
+        signInWithGithub
     }
 
     useEffect( () => {

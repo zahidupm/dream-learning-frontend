@@ -5,7 +5,7 @@ import { auth } from '../configs/firebase.config'
 import { AuthContext } from '../contexts/auth.context'
 
 const Header = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
