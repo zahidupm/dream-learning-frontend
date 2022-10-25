@@ -1,7 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/auth.context';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const [userInfo, setUserInfo]= useState({
+        email: "",
+        password: ""
+    })
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    
+
   return (
     <div className='flex justify-center bg-gray-50 items-center pt-8'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-1 text-gray-900'>
@@ -10,6 +24,7 @@ const Register = () => {
           <p className='text-sm text-gray-400'>Welcome! Please Enter Your Information</p>
         </div>
         <form
+        onSubmit={handleSubmit}
           noValidate=''
           action=''
           className='space-y-12 ng-untouched ng-pristine ng-valid'
