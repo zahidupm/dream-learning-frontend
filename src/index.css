@@ -10,3 +10,9 @@
 .error-message::before {
   content: "❌ ";
 }
+.user-img {
+  width: 40px;
+}
+.learning-input {
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}

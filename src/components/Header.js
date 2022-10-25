@@ -7,7 +7,7 @@ const Header = () => {
     const user = null;
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-200'>
       <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
         <div className='relative flex items-center justify-between'>
           <Link
@@ -80,16 +80,11 @@ const Header = () => {
               )}
             </li>
             <li>{user?.email}</li>
-            {/* <li>
-              <NavLink
-                to='/login'
-                aria-label='Login'
-                title='Login'
-                className={({isActive}) => isActive ? 'font-medium tracking-wide transition-colors duration-200 bg-purple-500 py-2 px-6 text-white hover:text-deep-purple-accent-400' : 'font-medium tracking-wide transition-colors duration-200 bg-orange-500 text-white px-6 py-2 hover:text-deep-purple-accent-400'}
-              >
-                Sign In
-              </NavLink>
-            </li> */}
+            <li>
+            <div className="user">
+              <img className="user-img rounded-full" data-v-71039168="" src="//www.gravatar.com/avatar/e136cff7d5ecea56b848a9b6bd0b2b1d?s=30&amp;d=retro&amp;r=g" alt="Avatar"></img>
+            </div>
+            </li>
           </ul>
           <div className='lg:hidden'>
             <button
