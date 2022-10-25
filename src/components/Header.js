@@ -1,11 +1,13 @@
 import { signOut } from 'firebase/auth'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { auth } from '../configs/firebase.config'
+import { AuthContext } from '../contexts/auth.context'
 
 const Header = () => {
-    const user = null;
+    const {user, logOut} = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <div className='bg-gray-200'>
       <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -66,7 +68,7 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              {user ? (
+              {user?.uid ? (
                 <button onClick={() => signOut(auth)}>Logout</button>
               ) : (
                 <NavLink
@@ -79,11 +81,11 @@ const Header = () => {
                 </NavLink>
               )}
             </li>
-            <li>{user?.email}</li>
+            <li>{user?.displayName}</li>
             <li>
-            <div className="user">
-              <img className="user-img rounded-full" data-v-71039168="" src="//www.gravatar.com/avatar/e136cff7d5ecea56b848a9b6bd0b2b1d?s=30&amp;d=retro&amp;r=g" alt="Avatar"></img>
-            </div>
+              {user?.uid ? <div className="user">
+              <img aria-label={user?.displayName}
+                title={user?.displayName} className="user-img rounded-full" data-v-71039168="" src={user?.photoURL ? user?.photoURL : "//www.gravatar.com/avatar/e136cff7d5ecea56b848a9b6bd0b2b1d?s=30&amp;d=retro&amp;r=g"} alt="Avatar"></img> </div> : ''}
             </li>
           </ul>
           <div className='lg:hidden'>
