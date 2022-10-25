@@ -70,7 +70,7 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         toast.info('Google Sign')
-        // navigate('/');
+        navigate('/');
       })
       .catch(error => console.error(error))
     }
@@ -81,7 +81,8 @@ const Register = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
-        toast.info('Github Sign In')
+        toast.info('Github Sign In');
+        navigate('/');
       })
       .catch(error => console.error(error))
     }
