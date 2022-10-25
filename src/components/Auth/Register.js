@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/auth.context';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const [userInfo, setUserInfo]= useState({
@@ -17,11 +17,13 @@ const Register = () => {
     const handleName = (e) => {
         const name = e.target.value;
         console.log(name);
+        setUserInfo({...userInfo, name: e.target.value});
     }
 
     const handlePhotoURL = (e) => {
       const photoURL = e.target.value;
       console.log(photoURL);
+      setUserInfo({...userInfo, photoURL: e.target.value});
     }
 
     const handleEmail = (e) => {
@@ -36,6 +38,17 @@ const Register = () => {
         setUserInfo({...userInfo, password: e.target.value})
     }
 
+    const handleUpdateUserProfile = (name, photoURL) => {
+      const profile = {
+        displayName: name,
+          photoURL: photoURL
+      }
+      updateUserProfile(profile)
+      .then(() => {})
+      .catch(error => console.error(error))
+    }
+
+    // handle form
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -45,6 +58,7 @@ const Register = () => {
           console.log(user);
           toast.success('Register successful');
           navigate('/login');
+          handleUpdateUserProfile(userInfo.name, userInfo.photoURL)
         })
         .catch(error => console.error(error))
     }
