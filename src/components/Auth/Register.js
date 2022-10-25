@@ -6,15 +6,29 @@ const Register = () => {
     const {createUser} = useContext(AuthContext);
 
     const [userInfo, setUserInfo]= useState({
+        name: "",
         email: "",
         password: ""
     })
 
+    const handleName = (e) => {
+        const name = e.target.value;
+        console.log(name);
+    }
+
+    const handleEmail = (e) => {
+        const email = e.target.value;
+        console.log(email);
+    }
+
+    const handlePassword = (e) => {
+        const password = e.target.value;
+        console.log(password);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
     }
-
-    
 
   return (
     <div className='flex justify-center bg-gray-50 items-center pt-8'>
@@ -35,6 +49,7 @@ const Register = () => {
                 Name*
               </label>
               <input
+                onBlur={handleName}
                 type='text'
                 name='name'
                 id='name'
@@ -49,6 +64,7 @@ const Register = () => {
                 Email address*
               </label>
               <input
+                onBlur={handleEmail}
                 type='email'
                 name='email'
                 id='email'
@@ -65,6 +81,7 @@ const Register = () => {
                 </label>
               </div>
               <input
+                onBlur={handlePassword}
                 type='password'
                 name='password'
                 id='password'
