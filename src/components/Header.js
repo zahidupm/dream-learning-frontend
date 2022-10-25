@@ -69,7 +69,7 @@ const Header = () => {
             </li>
             <li>
               {user?.uid ? (
-                <button onClick={() => signOut(auth)}>Logout</button>
+                <button className='bg-orange-500 px-6 py-2 text-white fw-semibold' onClick={() => signOut(auth)}>Logout</button>
               ) : (
                 <NavLink
                 to='/login'
