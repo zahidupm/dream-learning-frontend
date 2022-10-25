@@ -5,6 +5,7 @@ import Blog from "../components/Blog";
 import Courses from "../components/Courses";
 import Faq from "../components/Faq";
 import Home from "../components/Home";
+import ItemDetails from "../components/ItemDetails";
 import Main from "../layout/Main";
 
 const routes = createBrowserRouter([
@@ -16,10 +17,21 @@ const routes = createBrowserRouter([
             {path: '/home', element: <Home></Home>},
             {path: '/login', element: <Login></Login>},
             {path: '/register', element: <Register></Register>},
-            {path: '/courses', element: <Courses></Courses>},
             {path: '/faq', element: <Faq></Faq>},
             {path: '/blog', element: <Blog></Blog>},
         ]
+    },
+    {
+        path: '/courses', 
+        element: <Courses></Courses>,
+        loader: () => fetch(`http://localhost:5000/all`),
+    }, 
+    {
+        path: '/item/:id',
+        element: <ItemDetails></ItemDetails>,
+        loader: ({params}) => {
+            return fetch(`http://localhost:5000/item/${params.id}`)
+        }
     }
 ])
 
