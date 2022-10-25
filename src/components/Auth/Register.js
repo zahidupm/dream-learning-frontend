@@ -43,7 +43,7 @@ const Register = () => {
         .then(result => {
           const user = result.user;
           console.log(user);
-          toast.success('success');
+          toast.success('Register successful');
           navigate('/login');
         })
         .catch(error => console.error(error))

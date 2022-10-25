@@ -1,6 +1,42 @@
-import { Link } from "react-router-dom"
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import { AuthContext } from "../../contexts/auth.context";
 
 const Login = () => {
+  const {signIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+  
+  const [userInfo, setUserInfo]= useState({
+    email: "",
+    password: ""
+  })
+
+  const handleEmail = (e) => {
+    const email = e.target.value;
+    console.log(email);
+    setUserInfo({...userInfo, email: e.target.value});
+  }
+
+  const handlePassword = (e) => {
+    const password = e.target.value;
+    console.log(password);
+    setUserInfo({...userInfo, password: e.target.value})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    signIn(userInfo.email, userInfo.password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      toast.success('Login successful');
+      navigate('/');
+    })
+
+  }
+
     return (
       <div className='flex justify-center bg-gray-50 items-center pt-8'>
         <div className='flex flex-col max-w-md p-6 rounded-md sm:p-1 text-gray-900'>
@@ -9,6 +45,7 @@ const Login = () => {
           <p className='text-sm text-gray-400'>Welcome! Please Enter Your Information</p>
         </div>
         <form
+          onSubmit={handleSubmit}
           noValidate=''
           action=''
           className='space-y-12 ng-untouched ng-pristine ng-valid'
@@ -19,6 +56,7 @@ const Login = () => {
                 Email address*
               </label>
               <input
+                onBlur={handleEmail}
                 type='email'
                 name='email'
                 id='email'
@@ -35,6 +73,7 @@ const Login = () => {
                 </label>
               </div>
               <input
+                onBlur={handlePassword}
                 type='password'
                 name='password'
                 id='password'
