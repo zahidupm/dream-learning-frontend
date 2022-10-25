@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/auth.context';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [userInfo, setUserInfo]= useState({
         name: "",
+        photoURL: "",
         email: "",
         password: ""
     })
@@ -16,18 +19,33 @@ const Register = () => {
         console.log(name);
     }
 
+    const handlePhotoURL = (e) => {
+      const photoURL = e.target.value;
+      console.log(photoURL);
+    }
+
     const handleEmail = (e) => {
         const email = e.target.value;
         console.log(email);
+        setUserInfo({...userInfo, email: e.target.value});
     }
 
     const handlePassword = (e) => {
         const password = e.target.value;
         console.log(password);
+        setUserInfo({...userInfo, password: e.target.value})
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        createUser(userInfo.email, userInfo.password)
+        .then(result => {
+          const user = result.user;
+          console.log(user);
+          toast.success('success');
+          navigate('/login');
+        })
     }
 
   return (
@@ -45,7 +63,7 @@ const Register = () => {
         >
           <div className='space-y-4'>
             <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
+              <label htmlFor='name' className='block mb-2 text-sm'>
                 Name*
               </label>
               <input
@@ -54,6 +72,21 @@ const Register = () => {
                 name='name'
                 id='name'
                 placeholder='Enter Your Name'
+                required="required"
+                className='w-full px-3 py-2 border rounded-sm learning-input border-gray-400 focus:border-blue-400 text-gray-900'
+                data-temp-mail-org='0'
+              />
+            </div>
+            <div>
+              <label htmlFor='photoURL' className='block mb-2 text-sm'>
+                PhotoURL*
+              </label>
+              <input
+                onBlur={handlePhotoURL}
+                type='text'
+                name='photoURL'
+                id='photoURL'
+                placeholder='Enter Photo URL'
                 required="required"
                 className='w-full px-3 py-2 border rounded-sm learning-input border-gray-400 focus:border-blue-400 text-gray-900'
                 data-temp-mail-org='0'
