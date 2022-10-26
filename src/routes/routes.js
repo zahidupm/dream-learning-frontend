@@ -7,6 +7,7 @@ import ErrorPage from "../components/ErrorPage";
 import Faq from "../components/Faq";
 import Home from "../components/Home";
 import ItemDetails from "../components/ItemDetails";
+import Premium from "../components/Premium";
 import Main from "../layout/Main";
 
 const routes = createBrowserRouter([
@@ -21,6 +22,7 @@ const routes = createBrowserRouter([
             {path: '/register', element: <Register></Register>},
             {path: '/faq', element: <Faq></Faq>},
             {path: '/blog', element: <Blog></Blog>},
+            {path: '/premium', element: <Premium></Premium>},
         ]
     },
     {

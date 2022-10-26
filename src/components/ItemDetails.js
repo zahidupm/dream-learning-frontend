@@ -1,5 +1,6 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
+import { Link, useLoaderData } from 'react-router-dom';
 import Header from './Header';
 import LeftSideNav from './LeftSideNav';
 
@@ -56,11 +57,15 @@ const ItemDetails = () => {
                 </div>
                 <p className='mb-5 text-gray-900'>{description}</p>
                 
-                <div className='flex items-center'>
-                  
+                <div className='flex space-between premium'>
                   <p className='inline-flex items-center font-semibold transition-colors duration-200 text-blue-400 hover:text-deep-purple-800'>
                     Price: {price}
                   </p>
+                </div>
+                <div className='mt-4'>
+                <Link to='/premium'>
+                    <button className='inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none'>Get premium access <FaArrowRight className='ml-2' /></button>
+                  </Link>
                 </div>
               </div>
             </div>
