@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaDungeon, FaGraduationCap } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const LeftSideNav = () => {
     const [items, setItems] = useState([]);
@@ -26,11 +26,10 @@ const LeftSideNav = () => {
                                         //     <Link to={`item/${item.id}`}>{item.name}</Link>
                                         // </p>
                                         <li key={item.id} className="rounded-sm">
-                                            <Link rel="noopener noreferrer" to={`../item/${item.id}`} className="flex items-center p-2 space-x-3 rounded-md">
+                                            <NavLink rel="noopener noreferrer" to={`../item/${item.id}`} className={({isActive}) => isActive ? 'flex items-center p-2 space-x-3 rounded-md font-medium tracking-wide text-[#4349f0] bg-[#eef4ff] transition-colors duration-200 hover:text-deep-purple-accent-400' : 'flex items-center p-2 space-x-3 rounded-md font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'}>
                                                 <FaGraduationCap className="w-5 h-5 fill-current dark:text-gray-400"></FaGraduationCap>
                                                 <span className='text-xl'>{item.name}</span>
-
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                         )
                                     }
