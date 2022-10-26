@@ -9,6 +9,7 @@ import Home from "../components/Home";
 import ItemDetails from "../components/ItemDetails";
 import Premium from "../components/Premium";
 import Main from "../layout/Main";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
     {
@@ -22,7 +23,7 @@ const routes = createBrowserRouter([
             {path: '/register', element: <Register></Register>},
             {path: '/faq', element: <Faq></Faq>},
             {path: '/blog', element: <Blog></Blog>},
-            {path: '/premium', element: <Premium></Premium>},
+            {path: '/premium', element: <PrivateRoute><Premium></Premium></PrivateRoute>},
         ]
     },
     {
