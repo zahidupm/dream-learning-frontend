@@ -5,8 +5,7 @@ import LeftSideNav from './LeftSideNav';
 
 const ItemDetails = () => {
     const itemData = useLoaderData();
-  const { img, name, description, price } =
-    itemData
+  const { img, name, description, price } = itemData;
 
   return (
     <div>
@@ -15,7 +14,7 @@ const ItemDetails = () => {
           <div className='basic-1/4'>
             <LeftSideNav></LeftSideNav>
           </div>
-          <div className='basic-3/4 bg-gray-50'>
+          <div className='basic-3/4 bg-gray-50 item-details'>
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl dark:text-gray">{name}</h2>
             </div>

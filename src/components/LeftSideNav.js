@@ -6,7 +6,7 @@ const LeftSideNav = () => {
     const [items, setItems] = useState([]);
 
     useEffect( () => {
-        fetch(`http://localhost:5000/all`)
+        fetch(`https://learning-platform-nine.vercel.app/all`)
         .then(res => res.json())
         .then(data => setItems(data));
     }, [])

@@ -27,14 +27,14 @@ const routes = createBrowserRouter([
         path: '/courses', 
         element: <Courses></Courses>,
         errorElement: <ErrorPage></ErrorPage>,
-        loader: () => fetch(`http://localhost:5000/all`),
+        loader: () => fetch(`https://learning-platform-nine.vercel.app/all`),
     }, 
     {
         path: '/item/:id',
         element: <ItemDetails></ItemDetails>,
         errorElement: <ErrorPage></ErrorPage>,
         loader: ({params}) => {
-            return fetch(`http://localhost:5000/item/${params.id}`)
+            return fetch(`https://learning-platform-nine.vercel.app/item/${params.id}`)
         }
     }
 ])

@@ -1,12 +1,14 @@
 import { signOut } from 'firebase/auth'
 import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { ThemeContext } from '../App'
 import { auth } from '../configs/firebase.config'
 import { AuthContext } from '../contexts/auth.context'
 
 const Header = () => {
     const {user} = useContext(AuthContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {toggleTheme, theme} = useContext(ThemeContext);
 
   return (
     <div className='bg-gray-200'>
@@ -86,6 +88,18 @@ const Header = () => {
               {user?.uid ? <div className="user">
               <img aria-label={user?.displayName}
                 title={user?.displayName} className="user-img rounded-full" data-v-71039168="" src={user?.photoURL ? user?.photoURL : "//www.gravatar.com/avatar/e136cff7d5ecea56b848a9b6bd0b2b1d?s=30&amp;d=retro&amp;r=g"} alt="Avatar"></img> </div> : ''}
+            </li>
+            <li>
+              {/* toggle */}
+              <label htmlFor="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+              <span></span>
+              <span className="relative">
+                <input onChange={toggleTheme} checked={theme === 'dark'} id="Toggle1" type="checkbox" className="hidden peer" />
+                <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-violet-400"></div>
+                <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                </span>
+                <span></span>
+              </label>
             </li>
           </ul>
           <div className='lg:hidden'>

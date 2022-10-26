@@ -16,6 +16,30 @@
 .learning-input {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
-.learner-sidebar{
+.learner-sidebar {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+/* dark mode */
+#light {
+  /* background-color: #f3ebf6; */
+}
+#dark {
+  background-color: #1f1f1f;
+  color: white;
+}
+#dark a,
+#dark p {
+  color: white;
+}
+#dark .item-details {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.darkBgColor {
+  @apply bg-[#1f1f1f];
+}
+.darkSColor {
+  @apply bg-[#262626];
 }

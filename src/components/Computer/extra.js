@@ -9,3 +9,8 @@ const extra = () => {
 };
 
 export default extra;
+
+/* 
+https://learning-platform-36621.web.app
+https://assignment-10-learning-platform-server-nu.vercel.app
+*/
