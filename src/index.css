@@ -58,6 +58,10 @@
   background-color: #050505;
 }
 
+#dark .dark-active {
+  @apply text-blue-700;
+}
+
 .premium {
   justify-content: space-between;
   align-items: center;
