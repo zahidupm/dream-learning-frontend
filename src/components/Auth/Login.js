@@ -64,7 +64,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       toast.success('Login successful');
-      navigate(location?.state?.from?.pathname);
+      navigate(location?.state?.from?.pathname || '/');
     })
     .catch(error => {
       console.error(error)
@@ -80,7 +80,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       toast.info('Google Sign')
-      navigate(location?.state?.from?.pathname)
+      navigate(location?.state?.from?.pathname || '/')
     })
     .catch(error => {
       console.error(error);
@@ -94,7 +94,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       toast.info('Github Sign In');
-      navigate(location?.state?.from?.pathname);
+      navigate(location?.state?.from?.pathname || '/');
     })
     .catch(error => console.error(error))
   }

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ThemeContext } from '../../App';
 import { AuthContext } from '../../contexts/auth.context';
@@ -8,6 +8,7 @@ const Register = () => {
     const {createUser, updateUserProfile, signInWithGoogle, signInWithGithub} = useContext(AuthContext);
     const navigate = useNavigate();
     const {theme} = useContext(ThemeContext);
+    const location = useLocation();
 
     const [userInfo, setUserInfo]= useState({
         name: "",
@@ -104,7 +105,7 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         toast.info('Google Sign')
-        navigate('/');
+        navigate(location?.state?.from?.pathname || '/');
       })
       .catch(error => console.error(error))
     }
@@ -116,7 +117,7 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         toast.info('Github Sign In');
-        navigate('/');
+        navigate(location?.state?.from?.pathname || '/');
       })
       .catch(error => console.error(error))
     }
