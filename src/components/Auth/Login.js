@@ -34,7 +34,24 @@ const Login = () => {
   const handlePassword = (e) => {
     const password = e.target.value;
     console.log(password);
-    setUserInfo({...userInfo, password: e.target.value})
+
+    const lengthError = password.length < 6;
+    const noSymbolError = !/[\!\@\#\$\%\^\&\*]{1,}/.test(password);
+    const noCapitalLetterError = !/[A-Z]{1,}/.test(password);
+
+    if(lengthError) {
+      setErrors({...errors, password: 'Must be at least 6 character'});
+      setUserInfo({...userInfo, password: ''});
+    } else if(noSymbolError) {
+      setErrors({...errors, password: 'At least 1 Especial character'});
+      setUserInfo({...userInfo, password: ''})
+    } else if(noCapitalLetterError) {
+      setErrors({...errors, password: 'At least 1 Uppercase character'});
+      setUserInfo({...userInfo, password: ''});
+    } else {
+      setErrors({...errors, password: ''});
+      setUserInfo({...userInfo, password: e.target.value});
+    }
   }
 
   const handleSubmit = (e) => {
@@ -126,6 +143,7 @@ const Login = () => {
                 className='w-full px-3 py-2 border rounded-sm learning-input border-gray-400 focus:border-blue-400 text-gray-900'
                 data-temp-mail-org='0'
               />
+              {errors.password && <p className='error-message'>{errors.password}</p>}
             </div>
           </div>
           <div className='space-y-2'>
