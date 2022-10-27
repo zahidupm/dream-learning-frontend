@@ -72,13 +72,13 @@ const Header = () => {
             </li>
             <li>
               {user?.uid ? (
-                <button className='bg-orange-500 px-6 py-2 text-white fw-semibold' onClick={() => signOut(auth)}>Logout</button>
+                <button className='bg-orange-300 hover:bg-orange-400 duration-200 px-6 py-2 text-white fw-semibold' onClick={() => signOut(auth)}>Logout</button>
               ) : (
                 <NavLink
                 to='/login'
                 aria-label='Login'
                 title='Login'
-                className={({isActive}) => isActive ? 'font-medium tracking-wide transition-colors duration-200 bg-purple-500 py-2 px-6 text-white hover:text-deep-purple-accent-400' : 'font-medium tracking-wide transition-colors duration-200 bg-orange-500 text-white px-6 py-2 hover:text-deep-purple-accent-400'}
+                className={({isActive}) => isActive ? 'font-medium tracking-wide transition-colors duration-200 bg-purple-500 py-2 px-6 text-white hover:text-deep-purple-accent-400' : 'font-medium tracking-wide transition-colors duration-200 bg-orange-300 hover:bg-orange-400 text-white px-6 py-2 hover:text-deep-purple-accent-400'}
                 >
                   Login
                 </NavLink>
@@ -204,13 +204,13 @@ const Header = () => {
                       </li>
                       <li>
                         {user?.uid ? (
-                          <button className='bg-orange-500 px-6 py-2 text-white fw-semibold' onClick={() => signOut(auth)}>Logout</button>
+                          <button className='bg-orange-300 hover:bg-orange-400 duration-200 px-6 py-2 text-white fw-semibold' onClick={() => signOut(auth)}>Logout</button>
                         ) : (
                           <NavLink
                           to='/login'
                           aria-label='Login'
                           title='Login'
-                          className={({isActive}) => isActive ? 'font-medium tracking-wide transition-colors duration-200 bg-purple-500 py-2 px-6 text-white hover:text-deep-purple-accent-400' : 'font-medium tracking-wide transition-colors duration-200 bg-orange-500 text-white px-6 py-2 hover:text-deep-purple-accent-400'}
+                          className={({isActive}) => isActive ? 'font-medium tracking-wide transition-colors duration-200 bg-purple-500 py-2 px-6 text-white hover:text-deep-purple-accent-400' : 'font-medium tracking-wide transition-colors duration-200 bg-orange-300 hover:bg-orange-400 text-white px-6 py-2 hover:text-deep-purple-accent-400'}
                           >
                             Login
                           </NavLink>

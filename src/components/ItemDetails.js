@@ -25,7 +25,7 @@ class ComponentToPrint extends React.Component {
 
 const ItemDetails = () => {
     const itemData = useLoaderData();
-  const { img, name, description } = itemData;
+  const { img, name, description, price } = itemData;
 
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
@@ -101,7 +101,7 @@ const Example = () => {
                 
                 <div className='flex space-between premium'>
                   <p className='inline-flex items-center font-semibold transition-colors duration-200 text-blue-400 hover:text-deep-purple-800'>
-                    Price: $ 49
+                    Price: $ {price}
                   </p>
                 </div>
                 <div className='mt-4'>
