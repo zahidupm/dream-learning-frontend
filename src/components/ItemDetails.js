@@ -1,12 +1,57 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import { useReactToPrint } from 'react-to-print';
 import Header from './Header';
 import LeftSideNav from './LeftSideNav';
+
+
+class ComponentToPrint extends React.Component {
+  render() {
+    return (
+      <div>
+        <div style={{ fontSize: "40px", color: "green" }}>
+          Lorem ipsum dolor sit amet,
+        </div>
+        <div style={{ color: "blue" }}>
+          Characteristics of active learning 1. You look for ways of being more
+          involved in what you are learning
+        </div>
+      </div>
+    );
+  }
+}
+
 
 const ItemDetails = () => {
     const itemData = useLoaderData();
   const { img, name, description, price } = itemData;
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
+  /* 
+    import React, { useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
+
+import { ComponentToPrint } from './ComponentToPrint';
+
+const Example = () => {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
+  return (
+    <div>
+      <ComponentToPrint ref={componentRef} />
+      <button onClick={handlePrint}>Print this out!</button>
+    </div>
+  );
+};
+  */
 
   return (
     <div>
@@ -16,6 +61,7 @@ const ItemDetails = () => {
             <LeftSideNav></LeftSideNav>
           </div>
           <div className='basic-3/4 bg-gray-50 item-details'>
+          <ComponentToPrint ref={componentRef} />
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl dark:text-gray">{name}</h2>
             </div>
@@ -40,6 +86,7 @@ const ItemDetails = () => {
                     {name}
                     </h5>
                     <button
+                    onClick={handlePrint}
                       type='submit'
                       className='inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none'
                     >
