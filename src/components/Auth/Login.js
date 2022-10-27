@@ -63,8 +63,12 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
-      toast.success('Login successful');
-      navigate(location?.state?.from?.pathname || '/');
+      if(user.emailVerified) {
+        navigate(location?.state?.from?.pathname || '/');
+        toast.success('Login successful');
+      } else {
+        toast.error('Your email is not verified. Please verify email.')
+      }
     })
     .catch(error => {
       console.error(error)

@@ -5,7 +5,7 @@ import { ThemeContext } from '../../App';
 import { AuthContext } from '../../contexts/auth.context';
 
 const Register = () => {
-    const {createUser, updateUserProfile, signInWithGoogle, signInWithGithub} = useContext(AuthContext);
+    const {createUser, updateUserProfile, signInWithGoogle, signInWithGithub, verifyEmail} = useContext(AuthContext);
     const navigate = useNavigate();
     const {theme} = useContext(ThemeContext);
     const location = useLocation();
@@ -90,7 +90,9 @@ const Register = () => {
           console.log(user);
           toast.success('Register successful');
           navigate('/login');
-          handleUpdateUserProfile(userInfo.name, userInfo.photoURL)
+          handleUpdateUserProfile(userInfo.name, userInfo.photoURL);
+          handleEmailVerification();
+          toast.success('Please verify your email address.')
         })
         .catch(error => {
           console.error(error);
@@ -120,6 +122,16 @@ const Register = () => {
         navigate(location?.state?.from?.pathname || '/');
       })
       .catch(error => console.error(error))
+    }
+
+    // verify email
+    const handleEmailVerification = () => {
+      verifyEmail()
+      .then(() => {})
+      .catch(error => {
+        console.error(error);
+        setErrors({...errors, general: error.message});
+      })
     }
 
   return (
