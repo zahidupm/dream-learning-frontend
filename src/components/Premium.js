@@ -166,7 +166,7 @@ const Premium = () => {
                 <p className="text-sm font-bold tracking-wider uppercase">
                   12 Months
                 </p>
-                <p className="text-5xl font-extrabold">$17</p>
+                <p className="text-5xl font-extrabold">$49</p>
               </div>
               <div className="flex items-center justify-center w-24 h-24 rounded-full bg-indigo-50">
                 <svg

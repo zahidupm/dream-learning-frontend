@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { ThemeContext } from '../App'
 import { auth } from '../configs/firebase.config'
 import { AuthContext } from '../contexts/auth.context'
+import LeftSideNav from './LeftSideNav'
 
 const Header = () => {
     const {user} = useContext(AuthContext);
@@ -125,7 +126,7 @@ const Header = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className='absolute top-0 left-0 w-full'>
+              <div className='absolute top-0 left-0 w-full learning-menu'>
                 <div className='p-5 bg-white border rounded shadow-sm'>
                   <div className='flex items-center justify-between mb-4'>
                     <div>
@@ -234,6 +235,9 @@ const Header = () => {
                         </label>
                       </li>
                     </ul>
+                    <div className='menu-sidebar l'>
+                      <LeftSideNav></LeftSideNav>
+                    </div>
                   </nav>
                 </div>
               </div>

@@ -2,7 +2,7 @@
 
 My Live Website Link [https://learning-platform-36621.web.app/](https://learning-platform-36621.web.app/).
 
-## my Website Features
+## My Website Features
 
 ### This is for Computer Science Student who want to learn Computer Science
 
