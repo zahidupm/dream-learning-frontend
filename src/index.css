@@ -45,6 +45,11 @@
   color: black;
 }
 
+#dark .t-red {
+  color: red;
+  font-weight: 700;
+}
+
 #dark .b-white {
   background-color: white;
 }

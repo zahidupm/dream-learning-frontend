@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { ThemeContext } from '../../App';
 import { AuthContext } from '../../contexts/auth.context';
 
 const Register = () => {
     const {createUser, updateUserProfile, signInWithGoogle, signInWithGithub} = useContext(AuthContext);
     const navigate = useNavigate();
+    const {theme} = useContext(ThemeContext);
 
     const [userInfo, setUserInfo]= useState({
         name: "",
@@ -120,10 +122,10 @@ const Register = () => {
     }
 
   return (
-    <div className='flex justify-center bg-gray-50 items-center pt-8'>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-1 text-gray-900'>
+    <div id={theme} className='flex justify-center bg-gray-50 items-center pt-8 mb-6'>
+      <div className='t-white flex flex-col max-w-md p-6 rounded-md sm:p-1 text-gray-900'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Create Account</h1>
+          <h1 className='t-white my-3 text-4xl font-bold'>Create Account</h1>
           <p className='text-sm text-gray-400'>Welcome! Please Enter Your Information</p>
         </div>
         <form
@@ -177,7 +179,7 @@ const Register = () => {
                 className='w-full px-3 py-2 border rounded-sm learning-input border-gray-400 focus:border-blue-400 text-gray-900'
                 data-temp-mail-org='0'
               />
-              {errors.email && <p className="error-message">{errors.email}</p>}
+              {errors.email && <p id={theme} className="t-red error-message">{errors.email}</p>}
             </div>
             <div>
               <div className='flex justify-between mb-2'>
@@ -195,7 +197,7 @@ const Register = () => {
                 className='w-full px-3 py-2 border rounded-sm learning-input border-gray-400 focus:border-blue-400 text-gray-900'
                 data-temp-mail-org='0'
               />
-              {errors.password && <p className='error-message'>{errors.password}</p>}
+              {errors.password && <p id={theme} className='t-red error-message'>{errors.password}</p>}
             </div>
           </div>
           <div className='space-y-2'>
@@ -206,7 +208,7 @@ const Register = () => {
               >
                 Sign Up
               </button>
-              {errors.general && <p className='error-message'>{errors.general}</p>}
+              {errors.general && <p id={theme} className='t-red error-message'>{errors.general}</p>}
             </div>
           </div>
         </form>
