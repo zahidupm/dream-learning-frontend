@@ -5,7 +5,7 @@ import { ThemeContext } from '../../App';
 import { AuthContext } from "../../contexts/auth.context";
 
 const Login = () => {
-  const {signIn, signInWithGoogle, signInWithGithub} = useContext(AuthContext);
+  const {signIn, signInWithGoogle, signInWithGithub, resetPassword} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const {theme} = useContext(ThemeContext);
@@ -75,6 +75,16 @@ const Login = () => {
       setErrors({...errors, general: error.message});
     });
 
+  }
+
+  const handleResetPassword = () => {
+    resetPassword(userInfo.email)
+    .then(() => {
+      toast.success('Reset has been sent, Please check.')
+    })
+    .catch(error => {
+      console.error(error.message);
+    })
   }
 
   // handle google sing in
@@ -164,6 +174,11 @@ const Login = () => {
             </div>
           </div>
         </form>
+        <div className='space-y-1'>
+          <button onClick={handleResetPassword} className='text-xs hover:underline text-gray-400'>
+            Forgot password?
+          </button>
+        </div>
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
           <p className='px-3 text-sm dark:text-gray-400 pb-4'>
