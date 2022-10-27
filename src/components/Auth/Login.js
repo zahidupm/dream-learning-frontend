@@ -13,10 +13,22 @@ const Login = () => {
     password: ""
   })
 
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    general: ""
+  })
+
   const handleEmail = (e) => {
     const email = e.target.value;
     console.log(email);
-    setUserInfo({...userInfo, email: e.target.value});
+    if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setErrors({...errors, email: "Please provide a valid email"});
+      setUserInfo({...userInfo, email: ''});
+    } else {
+      setErrors({...errors, email: ''});
+      setUserInfo({...userInfo, email: e.target.value});
+    }
   }
 
   const handlePassword = (e) => {
@@ -91,6 +103,7 @@ const Login = () => {
                 className='w-full px-3 py-2 border rounded-sm learning-input border-gray-400 focus:border-blue-400 text-gray-900'
                 data-temp-mail-org='0'
               />
+              {errors.email && <p className='error-message'>{errors.email}</p>}
             </div>
             <div>
               <div className='flex justify-between mb-2'>
