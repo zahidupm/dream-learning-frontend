@@ -12,7 +12,7 @@ const Header = () => {
   const {toggleTheme, theme} = useContext(ThemeContext);
 
   return (
-    <div className='bg-gray-200'>
+    <div className='bg-gray-200 b-dark' id={theme}>
       <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
         <div className='relative flex items-center justify-between'>
           <Link
@@ -25,7 +25,7 @@ const Header = () => {
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
             </svg>
 
-            <span className='ml-2 text-xl font-bold tracking-wide text-gray-800'>
+            <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 t-white'>
               Dream Learning
             </span>
           </Link>
@@ -107,10 +107,10 @@ const Header = () => {
             <button
               aria-label='Open Menu'
               title='Open Menu'
-              className='p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50'
+              className='t-white p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50'
               onClick={() => setIsMenuOpen(true)}
             >
-              <svg className='w-5 text-gray-600' viewBox='0 0 24 24'>
+              <svg className='t-white w-5 text-gray-600' viewBox='0 0 24 24'>
                 <path
                   fill='currentColor'
                   d='M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z'
@@ -127,7 +127,7 @@ const Header = () => {
             </button>
             {isMenuOpen && (
               <div className='absolute top-0 left-0 w-full learning-menu'>
-                <div className='p-5 bg-white border rounded shadow-sm'>
+                <div id={theme} className='p-5 bg-white border rounded shadow-sm'>
                   <div className='flex items-center justify-between mb-4'>
                     <div>
                       <Link
@@ -139,7 +139,7 @@ const Header = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                         </svg>
-                        <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
+                        <span className='t-white ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
                           Dream Learning
                         </span>
                       </Link>

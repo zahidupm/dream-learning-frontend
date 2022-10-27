@@ -32,3 +32,25 @@ REACT_APP_storageBucket=learning-cse-a8e31.appspot.com
 REACT_APP_messagingSenderId=1024048970521
 REACT_APP_appId=1:1024048970521:web:f49a15649c9bd3af33e388
 */
+
+// pdf
+ /* 
+    import React, { useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
+
+import { ComponentToPrint } from './ComponentToPrint';
+
+const Example = () => {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
+  return (
+    <div>
+      <ComponentToPrint ref={componentRef} />
+      <button onClick={handlePrint}>Print this out!</button>
+    </div>
+  );
+};
+  */

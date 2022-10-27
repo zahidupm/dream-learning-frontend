@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
+import { ThemeContext } from '../App';
 import Header from './Header';
 import LeftSideNav from './LeftSideNav';
 
@@ -26,35 +27,15 @@ class ComponentToPrint extends React.Component {
 const ItemDetails = () => {
     const itemData = useLoaderData();
   const { img, name, description, price } = itemData;
+  const {theme} = useContext(ThemeContext)
 
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
 
-  /* 
-    import React, { useRef } from 'react';
-import { useReactToPrint } from 'react-to-print';
-
-import { ComponentToPrint } from './ComponentToPrint';
-
-const Example = () => {
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
-
   return (
-    <div>
-      <ComponentToPrint ref={componentRef} />
-      <button onClick={handlePrint}>Print this out!</button>
-    </div>
-  );
-};
-  */
-
-  return (
-    <div>
+    <div id={theme}>
         <Header></Header>
         <div className='flex flex-row'>
           <div className='basic-1/4 left-side-category'>
@@ -63,10 +44,10 @@ const Example = () => {
           <div className='basic-3/4 bg-gray-50 item-details'>
           <ComponentToPrint ref={componentRef} />
             <div>
-              <h2 className="text-3xl mt-8 font-bold tracking-tight text-center sm:text-5xl dark:text-gray">{name}</h2>
+              <h2 className="text-3xl mt-8 font-bold tracking-tight text-center sm:text-5xl dark:text-gray t-white">{name}</h2>
             </div>
                 <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
-            <div className='flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded shadow-sm lg:flex-row sm:mx-auto'>
+            <div id={theme} className='flex flex-col max-w-screen-lg overflow-hidden d-dark bg-white border rounded shadow-sm lg:flex-row sm:mx-auto'>
               <div className=' lg:w-1/2'>
                 <img
                   src={img}
@@ -74,7 +55,7 @@ const Example = () => {
                   className='object-cover w-full  h-80 lg:h-full'
                 />
               </div>
-              <div className='flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2'>
+              <div id={theme} className='flex flex-col justify-center p-8 b-dark bg-white lg:p-16 lg:pl-10 lg:w-1/2'>
                 <div>
                   <div>
                     <h5 className='mb-3 text-3xl font-extrabold leading-none sm:text-4xl'>
@@ -100,7 +81,7 @@ const Example = () => {
                 <p className='mb-5 text-gray-900'>{description}</p>
                 
                 <div className='flex space-between premium'>
-                  <p className='inline-flex items-center font-semibold transition-colors duration-200 text-blue-400 hover:text-deep-purple-800'>
+                  <p id={theme} className='t-white inline-flex items-center font-semibold transition-colors duration-200 text-blue-400 hover:text-deep-purple-800'>
                     Price: $ {price}
                   </p>
                 </div>

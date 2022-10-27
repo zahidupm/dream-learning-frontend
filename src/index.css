@@ -40,6 +40,11 @@
 #dark .t-white {
   color: white;
 }
+
+#dark .t-dark {
+  color: black;
+}
+
 #dark .b-white {
   background-color: white;
 }

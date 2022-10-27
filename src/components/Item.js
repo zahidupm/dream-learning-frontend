@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../App';
 
 const Item = ({item}) => {
     const {name, img, id, description} = item;
+    const {theme} = useContext(ThemeContext)
     return (
-        <div>
+        <div id={theme}>
             {/* <Link to={`../item/${id}`} aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
                 <img
@@ -28,7 +30,7 @@ const Item = ({item}) => {
                 <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-deep-purple-accent-400 group-hover:scale-y-100" />
                 <div className="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
                 <div className="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-deep-purple-accent-400 group-hover:scale-y-100" />
-                    <div className="relative p-5 bg-white rounded-sm">
+                    <div id={theme} className="d-dark relative p-5 bg-white rounded-sm">
                         <div className="flex flex-col lg:items-center lg:flex-row">
                             <div className="flex items-center justify-center h-64 w-64 mb-4 mr-2 lg:mb-0">
                             <img className=" h-48 w-full p-2 text-deep-purple-accent-400" src={img} alt="" />
