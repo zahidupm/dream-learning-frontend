@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# My Website Name [Dream Learning](https://learning-platform-36621.web.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My Live Website Link [https://learning-platform-36621.web.app/](https://learning-platform-36621.web.app/).
 
-## Available Scripts
+## my Website Features
 
-In the project directory, you can run:
+### This is for Computer Science Student who want to learn Computer Science
 
-### `npm start`
+### This project also give premium access for who want to learn modern Computer Science
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### This project is very safe, because we use firebase authentication for authenticate this project. Your information always safe
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### In this project you can learn computer programming, Algorithms and complexity, Architecture and organization and others
 
-### `npm test`
+### In this project there also a blog option here you can learn more and more thing about computer science every week new blog publish. If you want you can write any blog to our site
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## List of Technologies
 
-### `npm run build`
+### [Tailwindcss](https://tailwindcss.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### [React Router Dom](https://reactrouter.com/en/main)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### [React-icons](https://react-icons.github.io/react-icons/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### [React to Print](https://www.npmjs.com/package/react-to-print)
 
-### `npm run eject`
+### [React Toastify](https://www.npmjs.com/package/react-toastify)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### [firebase](https://console.firebase.google.com/)
