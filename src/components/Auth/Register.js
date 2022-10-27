@@ -72,7 +72,10 @@ const Register = () => {
           navigate('/login');
           handleUpdateUserProfile(userInfo.name, userInfo.photoURL)
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+          console.error(error);
+          setErrors({...errors, general:error.message})
+        })
     }
 
     // handle google sing in
@@ -185,6 +188,7 @@ const Register = () => {
               >
                 Sign Up
               </button>
+              {errors.general && <p className='error-message'>{errors.general}</p>}
             </div>
           </div>
         </form>

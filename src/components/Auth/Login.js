@@ -47,7 +47,10 @@ const Login = () => {
       toast.success('Login successful');
       navigate(location?.state?.from?.pathname);
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+      console.error(error)
+      setErrors({...errors, general: error.message});
+    });
 
   }
 
@@ -60,7 +63,9 @@ const Login = () => {
       toast.info('Google Sign')
       navigate(location?.state?.from?.pathname)
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error);
+    })
   }
 
   // handle github sing in
@@ -94,7 +99,7 @@ const Login = () => {
                 Email address*
               </label>
               <input
-                onBlur={handleEmail}
+                onChange={handleEmail}
                 type='email'
                 name='email'
                 id='email'
@@ -112,7 +117,7 @@ const Login = () => {
                 </label>
               </div>
               <input
-                onBlur={handlePassword}
+                onChange={handlePassword}
                 type='password'
                 name='password'
                 id='password'
@@ -131,6 +136,7 @@ const Login = () => {
               >
                 Sign In
               </button>
+              {errors.general && <p className='error-message'>{errors.general}</p>}
             </div>
           </div>
         </form>
