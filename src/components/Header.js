@@ -35,7 +35,6 @@ const Header = () => {
                 to='/home'
                 aria-label='Home'
                 title='Home'
-                id={theme}
                 className={({isActive}) => isActive ? ' dark-active font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'}
               >
                 Home
@@ -46,7 +45,6 @@ const Header = () => {
                 to='/courses'
                 aria-label='Courses'
                 title='Courses'
-                id={theme}
                 className={({isActive}) => isActive ? ' dark-active font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'}
               >
                 Courses
@@ -57,7 +55,6 @@ const Header = () => {
                 to='/faq'
                 aria-label='FAQ'
                 title='FAQ'
-                id={theme}
                 className={({isActive}) => isActive ? ' dark-active font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'}
               >
                 FAQ
@@ -68,7 +65,6 @@ const Header = () => {
                 to='/blog'
                 aria-label='Blog'
                 title='Blog'
-                id={theme}
                 className={({isActive}) => isActive ? ' dark-active font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'}
               >
                 Blog
@@ -168,7 +164,7 @@ const Header = () => {
                     <ul className='space-y-4'>
                       <li>
                         <NavLink
-                          to='/'
+                          to='/home'
                           aria-label='Home'
                           title='Home'
                           id={theme}
