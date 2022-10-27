@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../App';
 
 const Footer = () => {
+  const {theme} = useContext(ThemeContext)
     return (
         <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -12,33 +14,19 @@ const Footer = () => {
                       title="Company"
                       className="inline-flex items-center"
                     >
-                      <svg
-                        className="w-8 text-deep-purple-accent-400"
-                        viewBox="0 0 24 24"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        stroke="currentColor"
-                        fill="none"
-                      >
-                        <rect x="3" y="1" width="7" height="12" />
-                        <rect x="3" y="17" width="7" height="6" />
-                        <rect x="14" y="1" width="7" height="6" />
-                        <rect x="14" y="11" width="7" height="12" />
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                       </svg>
-                      <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Company
+                      <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase" id={theme}>
+                        Dream Learning
                       </span>
                     </Link>
                     <div className="mt-6 lg:max-w-sm">
                       <p className="text-sm text-gray-800">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium doloremque laudantium, totam rem aperiam.
+                        This learning platform is the online learning platform. Our main goal is better and better service providing to our students. This platform main tain it's commit.
                       </p>
                       <p className="mt-4 text-sm text-gray-800">
-                        Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                        beatae vitae dicta sunt explicabo.
+                        We hope you will join us and make your dream learning course. Thank you for everything.
                       </p>
                     </div>
                   </div>
@@ -121,7 +109,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
                   <p className="text-sm text-gray-600">
-                    © Copyright 2020 Lorem Inc. All rights reserved.
+                    © Copyright 2022 Lorem Inc. All rights reserved.
                   </p>
                   <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
                     <li>

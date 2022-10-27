@@ -37,6 +37,17 @@
   color: white;
 }
 
+#dark .t-white {
+  color: white;
+}
+#dark .b-white {
+  background-color: white;
+}
+
+#dark .b-dark {
+  background-color: #050505;
+}
+
 .premium {
   justify-content: space-between;
   align-items: center;
